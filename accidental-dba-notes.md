@@ -109,3 +109,10 @@ Workflows for a one time restores:
     3. Restore the *last* differential backup before that point.
     4. Restore all of the logs up to that point.
 
+Use the microsoft documentation when walking through a backup and restore.
+
+[MS Learn - SQL Server](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16)
+
+[MS Learn - Restore Database](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-differential-database-backup-sql-server?view=sql-server-ver16)
+
+

@@ -18,7 +18,7 @@ Example products: Veeam, SnapManager, NetBackup, BackupExec, and AppAssure.
 Works really well for most backup needs by taking a snapshot of the sever's
 contents at the time of excecution.
 
-Potential Risks:
+**Potential Risks:**
 
 Taking a backup that is "dirty" or "crash-consistent".
 
@@ -32,7 +32,7 @@ communicate to SQL Server that a snapshot is coming.  This will give SQL Server
 the chance to pause and or complete writes to the database's before the 
 snapshot is taken.
 
-Potential Pain Points:
+**Potential Pain Points:**
 
 The request to freeze the I/O for all databases before a backup can be painful
 for the user base.  The larger the number of databases, the larger the pause
@@ -53,7 +53,7 @@ server level.
 Much easier to make portable than VSS.  Only the needed data can be issolated
 and backed up to give to another team.  Where as VSS backsup the entire server.
 
-Potential Pain Points:
+**Potential Pain Points:**
 
 Backups are per database and not the server as a whole.  Backup plans need to 
 be updated to include any newly added databases to the server.
@@ -76,7 +76,7 @@ An example of this used in the backup process is to take a single full backup
 overnight and save incremental backups of just the transaction log every hour 
 after that.
 
-Potential Pain Points:
+**Potential Pain Points:**
 
 The restore process requires rolling forward through each of the backups in 
 sequence. This takes more technical ability than either the VSS or full backup.
@@ -91,7 +91,7 @@ Full Recovery vs. Simple Recovery
 | Logs all transactions | Also Logs all transactions |
 | Logs cleared only when backup runs | Logs is cleared when transaction is complete |
 
-Potential Risks:
+**Potential Risks:**
 
 Setting a database to *Full Recovery* but never making transactional log 
 backups.  Here the server will never clear log files and will run into 

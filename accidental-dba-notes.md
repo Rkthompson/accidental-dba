@@ -15,8 +15,8 @@ The most common modern way to run backups.  It backups the server, files, and
 database by taking a snapshot.  Uses Volume Snapshot Service (VSS).
 Example products: Veeam, SnapManager, NetBackup, BackupExec, and AppAssure.
 
-Works really well for most backup needs by taking a snapshot of the sever's
-contents at the time of excecution.
+Works really well for most backup needs by taking a snapshot of the server's
+contents at the time of execution.
 
 **Potential Risks:**
 
@@ -96,7 +96,7 @@ Full Recovery vs. Simple Recovery
 Setting a database to *Full Recovery* but never making transactional log 
 backups.  Here the server will never clear log files and will run into 
 associated storage issues with an constantly growing set of logs.  Becomes 
-even more crtical if the logs are kept on the same drive as the OS (C: drive 
+even more critical if the logs are kept on the same drive as the OS (C: drive 
 for instance).
 
 ## Restores
@@ -110,9 +110,17 @@ Workflows for a one time restores:
     4. Restore all of the logs up to that point.
 
 Use the microsoft documentation when walking through a backup and restore.
+*"You want to make sure you get it right... read the documentation."* 
+*-Brent Ozar*
 
 [MS Learn - SQL Server](https://learn.microsoft.com/en-us/sql/sql-server/?view=sql-server-ver16)
 
 [MS Learn - Restore Database](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-differential-database-backup-sql-server?view=sql-server-ver16)
 
+**Potential Risks:**
 
+*Restoring over an existing database when only a subset of objects is needed.*
+Restore to a new temp database instead and not over the original database.  Let 
+the power users pull out the objects they are looking for from the new temp 
+database.  This will avoid the restore fixing one users specific issue but 
+potentially causing other data integrity problems.  

@@ -89,7 +89,6 @@ Full Recovery vs. Simple Recovery
 | Full Recivery | Simple Recovery |
 | ----------- | ----------- |
 | Logs all transactions | Also Logs all transactions |
-| ----------- | ----------- |
 | Logs cleared when backuped up | Logs is cleared when transaction is complete |
 
 Potential Risks:

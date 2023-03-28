@@ -1,8 +1,8 @@
 # Accidental DBA Notes
 
----
+
 ## Common Backup Strategies
----
+
 
 The three most common types:
 1. Sever-level snapshot backups

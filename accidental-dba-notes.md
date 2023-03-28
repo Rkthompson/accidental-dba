@@ -86,7 +86,7 @@ sequence. This takes more technical ability than either the VSS or full backup.
 Full Recovery vs. Simple Recovery
 *view by right clicking on the database*
 
-| Full Recivery | Simple Recovery |
+| Full Recovery | Simple Recovery |
 | ----------- | ----------- |
 | Logs all transactions | Also Logs all transactions |
 | Logs cleared only when backup runs | Logs is cleared when transaction is complete |
@@ -98,3 +98,14 @@ backups.  Here the server will never clear log files and will run into
 associated storage issues with an constantly growing set of logs.  Becomes 
 even more crtical if the logs are kept on the same drive as the OS (C: drive 
 for instance).
+
+## Restores
+
+Workflows for a one time restores:
+- The VSS process is simple.  Pick a snapshot and restore.
+- SQL native backups have a few more steps.
+    1. Pick a restore time to shoot for.
+    2. Restore the closest full backup before that point.
+    3. Restore the *last* differential backup before that point.
+    4. Restore all of the logs up to that point.
+

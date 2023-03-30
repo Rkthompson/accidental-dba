@@ -124,3 +124,24 @@ Restore to a new temp database instead and not over the original database.  Let
 the power users pull out the objects they are looking for from the new temp 
 database.  This will avoid the restore fixing one users specific issue but 
 potentially causing other data integrity problems.  
+
+*When restoring an entire database*  Still restore to a new database name and
+keep the original database intact.  Ask users to review and approve that the
+restored database contains the data they need.  Rename the old database to
+dbname_to_delete and save for a set amount of time before removing from the
+server.
+
+Look for any secondary processes that could have been broken by the restore.  
+This would be any kind of "high availability" or "disaster recovery" setup for 
+the original database?  If it does, these need to be reviewed in the  
+documentation to see if and how they need to be reenabled.
+
+Examples of this include:
+* Failover cluster
+* Always On Availability Groups
+* Database mirroring
+* Replication
+* Log shipping
+* Backups of the log file tail
+
+

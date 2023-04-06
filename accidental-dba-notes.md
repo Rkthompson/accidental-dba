@@ -131,7 +131,7 @@ restored database contains the data they need.  Rename the old database to
 dbname_to_delete and save for a set amount of time before removing from the
 server.
 
-Look for any secondary processes that could have been broken by the restore.  
+Look for any secondary processes that could have been broken by the restore.
 This would be any kind of "high availability" or "disaster recovery" setup for 
 the original database?  If it does, these need to be reviewed in the  
 documentation to see if and how they need to be reenabled.

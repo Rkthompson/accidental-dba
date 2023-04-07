@@ -144,4 +144,21 @@ Examples of this include:
 * Log shipping
 * Backups of the log file tail
 
+*When restoring multiple databases.*  VSS backups across databases are snapshot
+at almost the same time.  But native SQL backups are done on a per job bases, 
+one at a time.  This means there will be bigger and bigger gaps between the 
+timestamps of each backup as the number and size of databases grow.
+
+The potential problem with this is when transactions have taken place that are
+cross databases transactions.  Becuase there are small gaps in time between the
+backups of mutliple databases there is a chance only part of a transaction is
+caught and restored.
+
+One way to avoid this is to use **Marked Transactions** on the application 
+side.  Microsoft allows a transaction mark to be placed in two or more related
+databases to provide a logically consistent recovery point. This only works 
+for databases using full or bulk-logged recovery models.  The downside to
+this is the potential for databases to lose any data or transactions that 
+to place after the mark was written.
+
 
